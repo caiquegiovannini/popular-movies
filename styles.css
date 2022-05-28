@@ -1,0 +1,12 @@
+:root {
+    --background-dark: #1D1C3B;
+    --background-darker: #17162E;
+    --text-light: #FFFFFF;
+    --text-dark: #ACACAC;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
