@@ -1,0 +1,47 @@
+@import './header.css';
+@import './movies-list.css';
+@import './movie-card.css';
+
+:root {
+    --background-dark: #1D1C3B;
+    --background-darker: #17162E;
+    --white: #FFFFFF;
+    --text-dark: #ACACAC;
+    --checkmark: #706EA8;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--background-darker);
+}
+
+body, input {
+    font-family: 'Kumbh Sans', sans-serif;
+    font-size: 1.125rem;
+    color: var(--white);
+}
+
+input {
+    border: none;
+    background: transparent;
+    outline: none;
+}
+
+h1 {
+    font-size: 2.25rem;
+}
+
+h3 {
+    font-size: 1.125rem;
+}
+
+.movies {
+    margin: 3.875rem auto;
+    width: 100%;
+    max-width: 1224px;
+}
