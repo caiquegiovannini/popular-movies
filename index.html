@@ -22,8 +22,11 @@
                     <img src="./public/assets/search-icon.svg" alt="search-icon">
                 </div>
             </form>
-            <input type="checkbox" name="show-favorites" id="show-favorites">
-            <label for="show-favorites">Mostrar meus filmes favoritos apenas</label>
+            <label class="show-favorites" for="show-favorites">
+                <input type="checkbox" name="show-favorites" id="show-favorites">
+                <span class="checkmark"></span>
+                Mostrar meus filmes favoritos apenas
+            </label>
         </header>
         <main class="movies__list">
             <article class="movie" id="movie-1">
@@ -53,7 +56,7 @@
                     <img src="./public/assets/image 3.png" alt="movie-image">
                 </div>
                 <div class="movie__info">
-                    <h3 class="movie__title">Batman (2022)</h3>
+                    <h3 class="movie__title">Avengers Endgame (2019)</h3>
                     <span class="movie__rate">
                         <img src="./public/assets/star.svg" alt="star-icon">
                         <p>9.4</p>
