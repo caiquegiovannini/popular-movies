@@ -36,6 +36,15 @@ const movies = [
 ];
 
 function renderMovieCard(movie) {
+    const {
+        image,
+        title,
+        rating,
+        year,
+        description,
+        isFavorited,
+    } = movie;
+
     const movieCard = document.createElement('article');
     movieCard.classList.add('movie');
     moviesList.appendChild(movieCard);
@@ -45,8 +54,8 @@ function renderMovieCard(movie) {
     movieImageContainer.classList.add('movie__image');
     movieCard.appendChild(movieImageContainer);
     const movieImage = document.createElement('img');
-    movieImage.src = movie.image;
-    movieImage.alt = `${movie.title} image`
+    movieImage.src = image;
+    movieImage.alt = `${title} image`
     movieImageContainer.appendChild(movieImage);
 
     // movie info
@@ -56,7 +65,7 @@ function renderMovieCard(movie) {
 
     const movieTitle = document.createElement('h3');
     movieTitle.classList.add('movie__title');
-    movieTitle.textContent = `${movie.title} (${movie.year})`;
+    movieTitle.textContent = `${title} (${year})`;
     movieInfo.appendChild(movieTitle);
 
     const movieRateContainer = document.createElement('div');
@@ -67,14 +76,14 @@ function renderMovieCard(movie) {
     starIcon.alt = 'star-icon';
     movieRateContainer.appendChild(starIcon);
     const movieRate = document.createElement('p');
-    movieRate.textContent = movie.rating;
+    movieRate.textContent = rating;
     movieRateContainer.appendChild(movieRate);
 
     const favoriteContainer = document.createElement('div');
     favoriteContainer.classList.add('favorite');
     movieInfo.appendChild(favoriteContainer);
     const favoriteIcon = document.createElement('img');
-    favoriteIcon.src = `public/assets/heart${movie.isFavorited ? '-full' : ''}.svg`;
+    favoriteIcon.src = `public/assets/heart${isFavorited ? '-full' : ''}.svg`;
     favoriteIcon.alt = 'heart-icon';
     favoriteContainer.appendChild(favoriteIcon);
     const favoriteText = document.createElement('p');
@@ -86,7 +95,7 @@ function renderMovieCard(movie) {
     movieDescriptionContainer.classList.add('movie__description');
     movieCard.appendChild(movieDescriptionContainer);
     const movieDescription = document.createElement('p');
-    movieDescription.textContent = movie.description;
+    movieDescription.textContent = description;
     movieDescriptionContainer.appendChild(movieDescription);
 };
 
