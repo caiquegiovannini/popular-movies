@@ -80,5 +80,8 @@ function renderMovieCard(movie) {
     };
 };
 
+window.onload = async () => {
+    const movies = await getPopularMovies();
 
-movies.forEach(movie => renderMovieCard(movie));
+    movies.forEach(movie => renderMovieCard(movie));
+};
