@@ -10,18 +10,18 @@ async function getPopularMovies() {
 
 function renderMovieCard(movie) {
     const {
-        image,
-        title,
-        rating,
-        year,
-        description,
-        isFavorited,
+        poster_path,
+        original_title,
+        vote_average,
+        release_date,
+        overview,
     } = movie;
+    const isFavorited = false;
 
     const movieCard = document.createElement('article');
     movieCard.classList.add('movie');
     moviesList.appendChild(movieCard);
-
+    
     addMovieImageToCard();
     addMovieInfoToCard();
     addMovieDescriptionToCard();
@@ -31,8 +31,8 @@ function renderMovieCard(movie) {
         movieImageContainer.classList.add('movie__image');
         movieCard.appendChild(movieImageContainer);
         const movieImage = document.createElement('img');
-        movieImage.src = image;
-        movieImage.alt = `${title} image`
+        movieImage.src = `${MOVIES_BASE_URL}${poster_path}`;
+        movieImage.alt = `${original_title} image`
         movieImageContainer.appendChild(movieImage);
     };
 
@@ -41,9 +41,10 @@ function renderMovieCard(movie) {
         movieInfo.classList.add('movie__info');
         movieCard.appendChild(movieInfo);
     
+        const year = release_date.slice(0,4);
         const movieTitle = document.createElement('h3');
         movieTitle.classList.add('movie__title');
-        movieTitle.textContent = `${title} (${year})`;
+        movieTitle.textContent = `${original_title} (${year})`;
         movieInfo.appendChild(movieTitle);
     
         const movieRateContainer = document.createElement('div');
@@ -54,7 +55,7 @@ function renderMovieCard(movie) {
         starIcon.alt = 'star-icon';
         movieRateContainer.appendChild(starIcon);
         const movieRate = document.createElement('p');
-        movieRate.textContent = rating;
+        movieRate.textContent = vote_average;
         movieRateContainer.appendChild(movieRate);
     
         const favoriteContainer = document.createElement('div');
@@ -74,7 +75,7 @@ function renderMovieCard(movie) {
         movieDescriptionContainer.classList.add('movie__description');
         movieCard.appendChild(movieDescriptionContainer);
         const movieDescription = document.createElement('p');
-        movieDescription.textContent = description;
+        movieDescription.textContent = overview;
         movieDescriptionContainer.appendChild(movieDescription);
     };
 };
