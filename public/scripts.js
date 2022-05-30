@@ -1,39 +1,12 @@
-const moviesList = document.querySelector('main.movies__list');
+import { movies_api_key } from '../movies_api_key.js';
 
-const movies = [
-    {
-      image: 'https://img.elo7.com.br/product/original/3FBA809/big-poster-filme-batman-2022-90x60-cm-lo002-poster-batman.jpg',
-      title: 'Batman',
-      rating: 9.2,
-      year: 2022,
-      description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
-      isFavorited: true,
-    },
-    {
-        image: 'https://img.elo7.com.br/product/original/3FBA809/big-poster-filme-batman-2022-90x60-cm-lo002-poster-batman.jpg',
-        title: 'Outro filme',
-        rating: 8.5,
-        year: 2020,
-        description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
-        isFavorited: true,
-      },
-      {
-        image: 'https://img.elo7.com.br/product/original/3FBA809/big-poster-filme-batman-2022-90x60-cm-lo002-poster-batman.jpg',
-        title: 'Filme Qualquer',
-        rating: 7.8,
-        year: 2021,
-        description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
-        isFavorited: false,
-      },
-      {
-        image: 'https://img.elo7.com.br/product/original/3FBA809/big-poster-filme-batman-2022-90x60-cm-lo002-poster-batman.jpg',
-        title: 'Filme ruim',
-        rating: 5.5,
-        year: 2022,
-        description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
-        isFavorited: false,
-      },
-];
+const moviesList = document.querySelector('main.movies__list');
+const MOVIES_BASE_URL = 'https://api.themoviedb.org'
+
+async function getPopularMovies() {
+    const fetchResponse = await (await fetch(`${MOVIES_BASE_URL}/3/movie/popular?api_key=${movies_api_key}`)).json();
+    return fetchResponse.results;
+};
 
 function renderMovieCard(movie) {
     const {
